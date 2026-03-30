@@ -1,0 +1,8 @@
+pyproject.toml
+src/trustlens/__init__.py
+src/trustlens.egg-info/PKG-INFO
+src/trustlens.egg-info/SOURCES.txt
+src/trustlens.egg-info/dependency_links.txt
+src/trustlens.egg-info/top_level.txt
+src/trustlens/ingest/openalex.py
+tests/test_openalex.py
