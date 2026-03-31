@@ -67,6 +67,7 @@ Pipeline validated on 50 open-access social science papers on social trust (Marc
 
 **Note on PDF download rate:** 29 papers were blocked by publisher paywalls (Sciencedirect, Wiley) despite being marked open-access by OpenAlex. This is a known limitation of OA metadata — Unpaywall API integration is the natural next step to improve coverage.
 ---
+
 ## Quickstart
 
 ### Prerequisites
