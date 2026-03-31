@@ -64,7 +64,7 @@ def run_pipeline(
     format="%(asctime)s [%(levelname)s] %(name)s — %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),
-        logging.FileHandler(config.BASE_DIR / "logs" / "pipeline.log"),
+        logging.FileHandler(config.BASE_DIR / "logs" / "pipeline.log", encoding="utf-8"),
     ],
     )
     summary = {
