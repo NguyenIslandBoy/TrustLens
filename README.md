@@ -1,5 +1,7 @@
 # TrustLens
 
+![CI](https://github.com/NguyenIslandBoy/TrustLens/actions/workflows/ci.yml/badge.svg)
+
 > A fully local, reproducible batch pipeline for extracting structured methodology metadata from open-access academic papers on social trust.
 
 No external APIs for inference. No data leaves your machine.
