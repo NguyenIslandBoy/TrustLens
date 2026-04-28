@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      OLLAMA_BASE_URL: http://localhost:11434/v1
+      OLLAMA_MODEL: llama3.1:8b
+      MONGO_URI: mongodb://localhost:27017
+      MONGO_DB: trustlens_test
+      OPENALEX_EMAIL: ci@example.com
+      MAX_PAPERS: "5"
+      PDF_TIMEOUT_SEC: "10"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: "7.0"
+
+      - name: Install package and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run tests (excluding integration tests requiring Ollama)
+        run: |
+          pytest tests/ -v -m "not llm and not integration" --cov=src --cov-report=term-missing
