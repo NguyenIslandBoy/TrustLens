@@ -7,16 +7,19 @@ import tempfile
 from src.trustlens.ingest.pdf_fetcher import download_pdf, _safe_filename, DownloadResult
 
 
+@pytest.mark.integration
 def test_fetch_returns_papers():
     papers = fetch_papers(email="test@example.com", max_results=5)
     assert len(papers) > 0
 
 
+@pytest.mark.integration
 def test_papers_have_pdf_urls():
     papers = fetch_papers(email="test@example.com", max_results=5)
     assert all(p.pdf_url is not None for p in papers)
 
 
+@pytest.mark.integration
 def test_papers_have_titles():
     papers = fetch_papers(email="test@example.com", max_results=5)
     assert all(len(p.title) > 0 for p in papers)
